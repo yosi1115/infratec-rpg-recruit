@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インフラテック王国 冒険の書 Ver.6.2 - 新卒採用情報 -</title>
+    <title>インフラテック王国 冒険の書 Ver.7.0 - 新卒採用情報 -</title>
     <!-- 
         Chosen Palette: Retro Night Sky
-        Application Structure Plan: New initial loading/warning scene (Scene 0). Linear narrative with Scene 4 branching. Custom background images. BGM using Dropbox direct link attempt (raw=1), with user controls. Emojis enhanced. Interactive "Knowledge Scroll" elements.
+        Application Structure Plan: New initial loading/warning scene (Scene 0). Linear narrative with Scene 4 branching. Custom background images. BGM using local relative path, with user controls. Emojis enhanced. Interactive "Knowledge Scroll" elements.
         Visualization & Content Choices: Dialogue boxes. JS for choice-based text, interactive details, BGM control. Emojis integrated. Custom Imgur images for backgrounds. SE placeholders commented.
         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
     -->
@@ -238,10 +238,11 @@
         <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
     </div>
 
-<audio id="backgroundMusic" loop>
-  <source src="./bgm.mp3" type="audio/mpeg">
-  お使いのブラウザは音声再生に対応していません。
-</audio>
+    <audio id="backgroundMusic" loop>
+      <!-- BGM file path updated to relative path -->
+      <source src="./Music_fx_.mp3" type="audio/mpeg">
+      お使いのブラウザは音声再生に対応していません。
+    </audio>
 
     <div id="scene0" class="scene active fade-in"> 
         <div class="dialogue-box">
@@ -281,7 +282,7 @@
             </div>
             <p>そしてそれらを用いた建築・土木工事である。</p>
             <p>特に、秘術<strong>GRC（ガラス繊維補強コンクリート）</strong>から生み出される製品群は、土木建築分野で国内トップシェアを誇り、王国の技術力の象徴なのだ！🛡️
-                <button class="detail-button" onclick="toggleDetail('detail-grc')">🔍 GRCとは？</button>
+                <button class="detail-button" onclick="toggleDetail('detail-grc')">� GRCとは？</button>
             </p>
             <div id="detail-grc" class="detail-content hidden">
                 <p><strong>GRC（Glassfiber Reinforced Concrete）とは？</strong><br>
@@ -486,7 +487,7 @@
                     if(playPauseButton) playPauseButton.textContent = '⏸️';
                 }).catch(error => {
                     console.warn("BGM autoplay/play failed on start:", error);
-                    if(playPauseButton && bgMusic.paused) playPauseButton.textContent = '▶️';
+                    if(playPauseButton && (!bgMusic || bgMusic.paused)) playPauseButton.textContent = '▶️';
                 });
             }
             showScene('scene1');
@@ -568,7 +569,7 @@
                             playPauseButton.textContent = '⏸️';
                         }).catch(error => {
                              console.warn("BGM play failed on button click:", error);
-                             playPauseButton.textContent = '▶️'; 
+                             if (bgMusic.paused) playPauseButton.textContent = '▶️'; 
                         });
                     } else {
                         bgMusic.pause();
@@ -590,3 +591,4 @@
 
 </body>
 </html>
+�
