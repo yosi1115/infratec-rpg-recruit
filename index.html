@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インフラテック王国 冒険の書 Ver.6.2 - 新卒採用情報 -</title>
+    <title>インフラテック王国 冒険の書 Ver.7.0 - 新卒採用情報 -</title>
     <!-- 
-        Chosen Palette: Retro Night Sky
-        Application Structure Plan: New initial loading/warning scene (Scene 0). Linear narrative with Scene 4 branching. Custom background images. BGM using Dropbox direct link attempt (raw=1), with user controls. Emojis enhanced. Interactive "Knowledge Scroll" elements.
-        Visualization & Content Choices: Dialogue boxes. JS for choice-based text, interactive details, BGM control. Emojis integrated. Custom Imgur images for backgrounds. SE placeholders commented.
-        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+        Version 7.0 Update:
+        - Added "Scholarship Support System" to the benefits section (Scene 4).
+        - Highlighted the new benefit to make it stand out.
+        - Created a pop-up detail for the new benefit.
     -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,10 +238,10 @@
         <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
     </div>
 
-<audio id="backgroundMusic" loop>
-  <source src="./Music_fx_.mp3" type="audio/mpeg">
-  お使いのブラウザは音声再生に対応していません。
-</audio>
+    <audio id="backgroundMusic" loop>
+      <source src="./Music_fx_.mp3" type="audio/mpeg">
+      お使いのブラウザは音声再生に対応していません。
+    </audio>
 
     <div id="scene0" class="scene active fade-in"> 
         <div class="dialogue-box">
@@ -281,7 +281,7 @@
             </div>
             <p>そしてそれらを用いた建築・土木工事である。</p>
             <p>特に、秘術<strong>GRC（ガラス繊維補強コンクリート）</strong>から生み出される製品群は、土木建築分野で国内トップシェアを誇り、王国の技術力の象徴なのだ！🛡️
-                <button class="detail-button" onclick="toggleDetail('detail-grc')">🔍 GRCとは？</button>
+                <button class="detail-button" onclick="toggleDetail('detail-grc')">  GRCとは？</button>
             </p>
             <div id="detail-grc" class="detail-content hidden">
                 <p><strong>GRC（Glassfiber Reinforced Concrete）とは？</strong><br>
@@ -352,11 +352,14 @@
                 <li>短大・専門学校卒業: <strong>234,025円</strong> 🧑‍🎓</li>
             </ul>
             <p class="text-sm mt-2">(職種手当は固定残業20時間分に相当。超過した場合は別途支給されるので安心だ 👍)</p>
-            <p>さらに、冒険の拠点に応じて<strong>地域手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-region')">🔍</button>（例：東京勤務なら月額35,000円！🗼）、<strong>資格手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-qual')">🔍</button>🎖️、<strong>住宅手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-housing')">🔍</button>🏡、<strong>家族手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-family')">🔍</button>👨‍👩‍👧‍👦など、様々な支援魔法（手当）も用意されている。</p>
+            
+            <p>さらに、冒険の拠点に応じて<strong>地域手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-region')">🔍</button>、<strong>資格手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-qual')">🔍</button>🎖️、<strong>住宅手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-housing')">🔍</button>🏡、<strong>家族手当</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-family')">🔍</button>👨‍👩‍👧‍👦、そして特にイチオシの<strong style="color: #f1c40f; text-shadow: 0 0 6px rgba(241, 196, 15, 0.7);">奨学金補助制度</strong><button class="detail-button" onclick="toggleDetail('detail-allowance-scholarship')">🔍</button>✨など、様々な支援魔法（手当）も用意されている。</p>
+            
             <div id="detail-allowance-region" class="detail-content hidden"><p><strong>地域手当:</strong> 勤務地によって生活費が異なることを考慮し、支給される手当です。例えば東京勤務の場合、月額35,000円が加算されます。</p></div>
             <div id="detail-allowance-qual" class="detail-content hidden"><p><strong>資格手当:</strong> 業務に関連する特定の資格を取得すると、毎月手当が支給されます。自己成長の励みにもなりますね！</p></div>
             <div id="detail-allowance-housing" class="detail-content hidden"><p><strong>住宅手当:</strong> 社員の住居に関する費用を一部補助する制度です。条件に応じて支給されます。</p></div>
             <div id="detail-allowance-family" class="detail-content hidden"><p><strong>家族手当:</strong> 扶養家族がいる社員に対して支給される手当です。家族を大切にする王国ならではの制度です。</p></div>
+            <div id="detail-allowance-scholarship" class="detail-content hidden"><p><strong>2025年4月より新しく導入！</strong><br>時代に合わせて新しく、より良く、を求めて。<br>※詳細は採用担当へお気軽にご質問ください</p></div>
 
             <p>年に一度の<strong>昇給の儀式</strong>（6月）<button class="detail-button" onclick="toggleDetail('detail-raise')">🔍</button>と、年に二度の<strong>ボーナス授与の祝祭</strong>（7月・12月、前年度実績はなんと基本給の4ヶ月分！さらに業績次第では決算賞与も！🎉）<button class="detail-button" onclick="toggleDetail('detail-bonus')">🔍</button>は、君の努力を称える盛大なものとなるだろう。</p>
             <div id="detail-raise" class="detail-content hidden"><p><strong>昇給の儀式:</strong> 毎年6月に、個人の業績や能力に基づいた公正な評価により昇給が行われます。日々の頑張りがしっかりと評価されます！</p></div>
@@ -539,15 +542,8 @@
             const detailElement = document.getElementById(detailId);
             if (detailElement) {
                 const isHidden = detailElement.classList.contains('hidden');
-                const parentDialogue = detailElement.closest('.dialogue-box');
-                if (parentDialogue) {
-                    parentDialogue.querySelectorAll('.detail-content').forEach(el => {
-                        if (el.id !== detailId) {
-                            el.classList.add('hidden');
-                        }
-                    });
-                }
-
+                // Don't close other details when opening a new one, allow multiple to be open.
+                // This simplifies the logic and can be better for comparison.
                 detailElement.classList.toggle('hidden');
                 if (!detailElement.classList.contains('hidden')) {
                     detailElement.classList.remove('fade-in');
